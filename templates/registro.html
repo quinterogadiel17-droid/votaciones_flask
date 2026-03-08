@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Ciudadanos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="titulo">
+        <h1>Conoce tu lugar de votación</h1>
+           <p>Elecciones Congreso de la Republica</p>
+    </div>
+
+     <header class="encabezado">
+            <div class="logo">
+           <img src="/static/img/LA-REGISTRADURIA-NACIONAL.png" alt="Logo">
+           </div>
+
+           <div class="banner">
+           <img src="/static/img/banner-document.png" alt="Baneer">
+           </div>
+
+           </header>
+           
+    <main class="container">
+        <h2>Registro de Ciudadanos</h2>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST" action="{{ url_for('register') }}">
+            <label for="identificacion">Número de identificación:</label>
+            <input id="identificacion" type="text" name="identificacion" required>
+
+            <label for="nombre">Nombre:</label>
+            <input id="nombre" type="text" name="nombre" required>
+
+            <label for="puesto_id">Puesto de votación:</label>
+            <select id="puesto_id" name="puesto_id" required>
+                <option value="" selected disabled>Selecciona un puesto</option>
+                {% for puesto in puestos %}
+                    <option value="{{ puesto.id }}">{{ puesto.lugar_votacion }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Registrar</button>
+        </form>
+
+        <a class="link" href="{{ url_for('inicio') }}">Volver al inicio</a>
+    </main>
+</body>
+</html>

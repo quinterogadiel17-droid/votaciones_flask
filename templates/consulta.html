@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Puesto de Votación</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <main class="container">
+        <h2>Consultar Puesto de Votación</h2>
+
+        <form method="POST" action="{{ url_for('consult') }}">
+            <label for="identificacion">Número de identificación:</label>
+            <input id="identificacion" type="text" name="identificacion" required>
+            <button type="submit">Consultar</button>
+        </form>
+
+        <a class="link" href="{{ url_for('inicio') }}">Volver al inicio</a>
+    </main>
+</body>
+</html>

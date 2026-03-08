@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Votaciones</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="titulo">
+        <h1>Lugar de Votación</h1>
+           <p>Este es el lugar donde podrás ejercer tu derecho al voto</p>
+    </div>
+
+    <header class="encabezado">
+            <div class="logo">
+           <img src="/static/img/LA-REGISTRADURIA-NACIONAL.png" alt="Logo">
+           </div>
+
+           <div class="banner">
+           <img src="/static/img/banner-document.png" alt="Baneer">
+           </div>
+
+           </header>
+
+     <form action="POST">
+
+            <div class="info">
+                <h5>¿Dónde puedo Votar?</h5>
+                <div class="actions">
+                    <a class="button" href="{{ url_for('register') }}">Registrar ciudadano</a>
+                    <a class="button secondary" href="{{ url_for('consult') }}">Consultar puesto</a>
+                </div>
+
+            </div >
+           </form>
+        
+    </main>
+</body>
+</html>

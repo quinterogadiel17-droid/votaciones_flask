@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado de Consulta</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <main class="container">
+        <h2>Información del Puesto de Votación</h2>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% elif ciudadano %}
+            <p><strong>Identificación:</strong> {{ ciudadano.numero_identificacion }}</p>
+            <p><strong>Nombre:</strong> {{ ciudadano.nombre }}</p>
+            <p><strong>Lugar de votación:</strong> {{ ciudadano.lugar }}</p>
+            <p><strong>Dirección:</strong> {{ ciudadano.direccion }}</p>
+            <p><strong>Mesa:</strong> {{ ciudadano.mesa }}</p>
+            <p><strong>Zona:</strong> {{ ciudadano.zona }}</p>
+        {% endif %}
+
+        <a class="link" href="{{ url_for('inicio') }}">Volver al inicio</a>
+    </main>
+</body>
+</html>
